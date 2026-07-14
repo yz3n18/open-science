@@ -1,4 +1,6 @@
 # Progress
+2026-07-14 23:58 — Switched desktop update checks and release-link test fixtures to the yz3n18/open-science release channel without changing update behavior.
+
 2026-07-14 — Established a reproducible local development toolchain with Node.js 20 and stable Rust.
 
 2026-07-14 · fix(desktop): traffic lights drift on some Macs — tao re-applies the configured inset only from drawRect, which the transparent+vibrancy window can stop firing; new src-tauri/src/macos.rs re-pins the lights on Focused/Resized/ThemeChanged. fix(session): a hard reload on /live/:id showed a permanent skeleton — openSession ran before bootstrap had a client and bailed with no retry; the page effect now re-fires on `connected` and on the session's directory arriving. 511/511 FE tests, cargo check, typecheck, lint pass, DMG rebuilt.

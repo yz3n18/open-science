@@ -10,7 +10,7 @@ import {
 
 const latest: UpdateInfo = {
   version: "v0.1.8",
-  url: "https://github.com/ai4s-research/open-science/releases/tag/v0.1.8",
+  url: "https://github.com/yz3n18/open-science/releases/tag/v0.1.8",
   name: "v0.1.8",
   publishedAt: "2026-07-09T00:00:00Z",
 };
@@ -102,6 +102,14 @@ describe("update store", () => {
     await useUpdateStore.getState().check({ manual: true, now: 2000 });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith(
+      "https://api.github.com/repos/yz3n18/open-science/releases/latest",
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+        },
+      },
+    );
     expect(useUpdateStore.getState().hasUpdate).toBe(true);
     expect(useUpdateStore.getState().showBadge).toBe(true);
   });
